@@ -1,0 +1,1914 @@
+/*
+Theme Name: robogon
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: robogon
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+robogon is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+
+
+/*
+    MAIN BLUE ===> color: #005194
+    MAIN BG GRAY ===> color: #F3F3F3
+*/
+
+.seat {
+  border: 1px solid #e7e7e7;
+  padding: 1em;
+  margin: 1em 0.5em;
+}
+
+a {
+  cursor: pointer;
+}
+
+.page-template-template-tips article>.container {
+  padding: 3px;
+}
+
+.fill-the-path-of-train {
+  stroke: #005194 !important;
+  fill: #FFD400 !important;
+}
+
+.mt-negative-30 {
+  margin-top: -30px;
+}
+
+body a[role=button].btn-yellow {
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button#hamburger:active,
+button#hamburger:focus,
+button#hamburger:hover {
+  border-color: transparent;
+  outline: none;
+}
+
+h2, .h2 {
+  font-size: 1.375rem;
+}
+
+.mt-6 {
+  margin-top: 4rem !important;
+}
+
+*:focus,
+*:hover,
+*:active {
+	outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body a:focus {
+  outline: none;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fz16 {
+  font-size: 1rem;
+}
+
+.fz18 {
+  font-size: 1.125rem;
+}
+
+.blue-bg {
+	background-color: #005194;
+	color: #fff;
+}
+
+header.fixed {
+  position: fixed;
+  width: 100%;
+  top: 29px;
+  left: 0;
+  right: 0;
+  background: #fff;
+	padding-top: 6px;
+}
+
+header.hide {
+  display: block;
+  position: fixed;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+header.show {
+  display: block;
+  position: fixed;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+header.show .logo svg,
+header.hide .logo svg {
+  height: 40px;
+  transition: all 0.2s linear;
+}
+
+header.show .logo-text,
+header.hide .logo-text {
+  margin-top: 6px;
+}
+
+header.show #navbarCollapse,
+header.hide #navbarCollapse {
+  margin-top: 16px;
+}
+
+#hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #005194;
+  display: none;
+  font-size: 1.75rem;
+}
+
+body.logged-in header.fixed {
+	margin-top: 29px;
+}
+
+#pre_header {
+	padding: 0.3rem 0;
+}
+
+#pre_header .left-side {
+	display: flex;
+}
+
+#pre_header .green-circle {
+	display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #63D26E;
+  margin: 1px 0.5rem 0 0.5rem;
+}
+
+#pre_header a {
+  color: #fff;
+}
+
+#navbarCollapse {
+	margin-top: 2rem;
+}
+
+.current-menu-item a,
+.current-menu-item a:visited {
+  color: #005194;
+}
+
+header a:visited {
+  color: #888;
+}
+
+.after-footer a:visited {
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-train {
+  background-color: #FFD400;
+  border-radius: 6px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: -90px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.search-train .from,
+.search-train .to,
+.search-train .when {
+	display: flex;
+	justify-content: space-between;
+}
+
+.search-train .from select,
+.search-train .to select,
+.search-train .when select {
+	width: 70%;
+}
+
+.search-train .from,
+.search-train .when {
+	margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.train-special-offer {
+	margin-top: -90px;
+  margin-left: 10px;
+	display: block;
+	width: 100%;
+	background-color: #E8E8E8;
+	-webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+}
+
+.train-special-offer .svg {
+	width: 60px;
+  float: left;
+	position: relative;
+  top: 28px;
+  left: 20px;
+}
+
+.train-special-offer .content {
+	font-size: 1rem;
+  position: relative;
+  top: 22px;
+  left: 40px;
+}
+
+.train-special-offer button {
+	position: absolute;
+	right: 30px;
+	bottom: 15px;
+	padding: 7px 60px;
+	font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tabs-about-train .heading {
+  margin: 2rem 0 1.5rem 0;
+  font-weight: 800;
+}
+
+#pills-tab {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pills-tab .nav-item {
+  position: relative;
+}
+
+/* #pills-tab .nav-item:nth-child(1) .nav-link .circle {
+  left: 0;
+} */
+
+/* #pills-tab .nav-item:nth-child(2) .nav-link .circle {
+  left: 50%;
+  transform: translateX(-50%);
+} */
+
+/* #pills-tab .nav-item:nth-child(3) .nav-link .circle {
+  right: 0;
+} */
+
+#pills-tab .nav-item:nth-child(1):after {
+  content: '';
+  display: block;
+  position: absolute;
+  border: 1px dashed #005194;
+  left: 42px;
+  top: 15px;
+  width: 197px;
+}
+
+#pills-tab .nav-item:nth-child(2):after {
+  content: '';
+  display: block;
+  position: absolute;
+  border: 1px dashed #005194;
+  left: 55px;
+  top: 15px;
+  width: 212px;
+}
+
+#pills-tab .nav-link .circle {
+	width: 30px;
+  height: 30px;
+  border: 1px solid #005194;
+  background: #fff;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#pills-tab .nav-link .circle:after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #005194;
+  background-color: #005194;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  opacity: 0;
+}
+
+#pills-tab .nav-link.active .circle:after {
+  opacity: 1;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  background-color: transparent;
+  color: #005194;
+}
+
+#pills-tab .nav-link {
+  cursor: pointer;
+  padding: 40px 0 0 0;
+  position: relative;
+}
+
+.tabs-about-train .tab-content button {
+  padding: 8px 40px;
+}
+
+.technical-data {
+  background-color: #E8E8E8;
+  border: 1px solid #C4C4C4;
+  border-radius: 6px;
+  padding: 20px 15px;
+}
+
+.technical-data .left-side {
+  float: left;
+}
+
+.technical-data .right-side {
+  float: right;
+  font-weight: 800;
+}
+
+.technical-data button {
+  margin-top: 4px;
+}
+
+.bordered-right {
+  border-right: 1px solid #005194;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slider-articles {
+  position: relative;
+  background-color: #E8E8E8;
+  margin: 3rem 0 0 0;
+  padding: 2rem 0 2rem 0;
+}
+
+.slider-articles h2 {
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.carousel {
+  display: flex;
+  margin-right: 50px;
+  margin-left: 50px;
+  width: auto;
+}
+
+.carousel-item .heading {
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.carousel .carousel-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.carousel .carousel-item .bg-img {
+  width: 100%;
+  height: 300px;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel .carousel-item a {
+  margin-top: -25px;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3)
+}
+
+.carousel-control-prev svg,
+.carousel-control-next svg {
+  width: 24px;
+  height: 24px;
+}
+
+.slider-articles a[role=button].btn-transparent {
+  padding: 5px 58px;
+  margin: 30px 0 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+  padding: 2rem 0 3rem 0;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+footer .ustecky svg {
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  left: -25px;
+  top: 0;
+}
+
+.after-footer {
+  padding: 10px 0;
+  background-color: #005194;
+  color: #fff;
+}
+
+.after-footer a {
+  color: #fff;
+}
+
+.video-footer-heading {
+  margin: 1.5rem 0;
+  font-weight: 800;
+  text-align: center;
+}
+
+.footer-video-group iframe {
+  border-radius: 6px;
+}
+
+.border-radius {
+  border: 1px solid #000;
+  -moz-border-radius: 6px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-page-content-body {
+  padding: 0;
+}
+
+.ustecky-kraj .svg {
+  width: 115px;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.interesting-cards .card {
+  margin: 10px;
+  border: none;
+}
+
+.interesting-cards .card .card-header {
+  padding: .75rem 0rem;
+  background-color: #F3F3F3;
+  border-bottom: none;
+}
+
+.interesting-cards .card .card-body {
+  background-color: #F3F3F3;
+}
+
+.interesting-cards .card .card-footer {
+  padding: .75rem 1.25rem;
+  background-color: #F3F3F3;
+  border-top: none;
+}
+
+body a[role=button].btn-transparent.bg-green {
+  background-color: #bada55;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.all-interesting-places {
+  margin: 3rem 0 0 0;
+  padding: 2rem 0;
+  background-color: #E8E8E8;
+}
+
+.all-interesting-places h2 {
+  margin: 1rem 0;
+}
+
+.all-interesting-places .card {
+  background-color: #E8E8E8;
+  border: none;
+}
+
+.all-interesting-places .card-header {
+  background-color: #E8E8E8;
+  border-bottom: none;
+  text-align: center;
+}
+
+.all-interesting-places .card-body {
+  height: 350px;
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.all-interesting-places .card-footer {
+  background-color: #E8E8E8;
+  border-top: none;
+  text-align: center;
+}
+
+.all-interesting-places .card-footer a[role=button].btn-yellow {
+  margin-top: -50px;
+  padding: 10px 55px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3)
+}
+
+.all-interesting-places a[role=button].btn-transparent {
+  padding: 10px 55px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bordered-top {
+  border-top: 1px solid #005194;
+}
+
+.the-full-post-gallery img {
+  border-radius: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#history {
+  padding: 30px;
+}
+
+#history .row {
+  background-image: url(assets/img/svg/koleje.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.history-section {
+  width: 100%;
+}
+
+.history-section h2 {
+  font-size: 1.125rem;
+}
+
+.history-section.left {
+  padding-right: 56%;
+  float: left;
+  text-align: right;
+}
+
+.history-section.right {
+  padding-left: 56%;
+  float: right;
+  text-align: left;
+}
+
+.history-section .svg {
+  width: 20px;
+  height: 20px;
+}
+
+.history-section.left .svg {
+  position: absolute;
+  right: 53%;
+}
+
+.history-section.right .svg {
+  position: absolute;
+  left: 53%;
+}
+
+.history-section:nth-child(2) {
+  margin-top: -100px;
+}
+
+.history-section:nth-child(4) {
+  margin-top: -170px;
+}
+
+.history-section:nth-child(5) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(7) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(8) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(10) {
+  margin-top: -170px;
+}
+
+.history-section:nth-child(12) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(13) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(15) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(17) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(19) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(21) {
+  margin-top: -170px;
+}
+
+.history-section:nth-child(22) {
+  margin-top: -70px;
+}
+
+.history-section:nth-child(23) {
+  margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-train-map {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.search-train-results h2 {
+  font-weight: bold;
+}
+
+.search-train-map h2 {
+  font-weight: bold;
+}
+
+.search-train-table {
+  background-color: #F3F3F3;
+  border: 1px solid #E8E8E8;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  border-radius: 6px;
+}
+
+.search-train-table table th {
+  border-top: none;
+}
+
+.search-train-table table tbody {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.search-train-table a[role=button].btn-yellow {
+  padding: 8px 40px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  modal feedback */
+
+#modalFeedback .modal-content {
+  border-radius: 0;
+  border-color: #005194;
+}
+#modalFeedback .modal-header {
+  text-align: center;
+}
+#modalFeedback h5 {
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  padding-top: 5px;
+}
+#modalFeedback .close {
+  padding: 10px;
+}
+#modalFeedback .close span {
+  font-size: 200%;
+  font-weight: 100;
+  color: #005194;
+  margin-top: -10px;
+}
+#modalFeedback .modal-body {
+  /* padding: 10px 85px 10px 85px; */
+  padding: 1rem 7rem;
+}
+#modalFeedback .modal-body p {
+  /* padding: 0 65px 0 65px; */
+  margin-bottom: 15px;
+}
+#modalFeedback .form-group {
+  margin-bottom: 10px;
+}
+#modalFeedback INPUT, #modalFeedback textarea {
+  border-radius: 0;
+  border-color: #005194;
+}
+#modalFeedback .modal-dialog {
+  width: 800px;
+  text-align: center;
+}
+#modalFeedback .modal-footer {
+  border-top: none;
+  justify-content: center;
+  padding: 10px 16px 30px 16px;
+}
+#modalFeedback .btn-primary,
+.rent-train .btn-primary {
+  border: none;
+  background-color: #FFD400;
+  color: #005194;
+  padding: 5px 55px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3)
+}
+
+/* END of modal feedback */
+
+/* Rent Train */
+
+.rent-train INPUT,
+.rent-train button,
+.rent-train p {
+  margin-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* END Rent Train */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#modalSearch .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#modalCheckFare {
+  margin-top: 1rem;
+  border-top: 1px solid #005194;
+  padding-top: 1rem;
+}
+
+#modalBookTrain {
+  margin-top: 1rem;
+  border-top: 1px solid #005194;
+  padding-top: 1rem;
+}
+
+.modal-dialog {
+  max-width: 95%;
+}
+
+.custom-number-input {
+  position: relative;
+}
+
+.label-for-custom-number-input {
+  margin-right: 2rem;
+}
+
+.custom-number-input .min {
+  background-color: #fff;
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  border: 1px solid #005194;
+  left: -19px;
+  text-align: center;
+  line-height: 1.9;
+  font-size: 1.25rem;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.custom-number-input input[type='number'] {
+  background-color: #fff;
+  color: #005194;
+  -moz-appearance: textfield;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #005194;
+  border-radius: 0;
+}
+
+.custom-number-input .plus {
+  background-color: #fff;
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  border: 1px solid #005194;
+  right: -59px;
+  text-align: center;
+  line-height: 2;
+  font-size: 1.25rem;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.modal-dialog .poznamka {
+  margin-top: 1rem;
+}
+
+.modal-dialog  .name-etc input {
+  border: 1px solid #005194;
+  width: 100%;
+}
+
+.modal-dialog .counts {
+  margin-top: 1rem;
+}
+
+.modal-dialog  .poznamka input {
+  border: 1px solid #005194;
+  width: 100%;
+}
+
+.modal-dialog  .upozorneni {
+  margin-top: 1rem;
+}
+
+.modal-dialog  .upozorneni input[type="submit"] {
+  background-color: #FFD400;
+  color: #005194;
+  border: none;
+  padding: 10px 100px;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.modal-dialog .modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-dialog .modal-body {
+  padding-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.thank-you-blue-box {
+  background: #005194;
+  color: #fff;
+  padding: 6rem 0;
+  margin: 3rem 0;
+}
+
+.thank-you-red-box {
+  background: #b31c1c;
+  color: #fff;
+  padding: 6rem 0;
+  margin: 3rem 0;
+}
+
+#mapa_tipy {
+  position: relative;
+}
+
+#mapa_tipy h2 {
+  border-bottom: 1px solid #005194;
+  position: absolute;
+  bottom: 45%;
+  font-size: 1rem;
+}
+
+#mapa_tipy .yellow-box-with-hand {
+  padding: 0.5rem;
+  background-color: #FFD400;
+  color: #000;
+  width: 175px;
+  bottom: 33%;
+  position: absolute;
+  font-size: 0.7rem;
+}
+
+#mapa_tipy .yellow-box-with-hand .hand {
+  float: left;
+}
+
+#mapa_tipy .yellow-box-with-hand .content {
+  float: right;
+}
+
+#mapa_tipy .legenda-pamatky {
+  position: absolute;
+  bottom: 21%;
+}
+
+#mapa_tipy .legenda-pamatky .left-side {
+  float: left;
+}
+
+#mapa_tipy .legenda-pamatky .right-side {
+  float: right;
+  margin: 5px 0 0 10px;
+}
+
+#mapa_tipy .legenda-pamatky p {
+  color: #918571;
+}
+
+#mapa_tipy .legenda-prirodni-ukazy {
+  position: absolute;
+  bottom: 13%;
+}
+
+#mapa_tipy .legenda-prirodni-ukazy .left-side {
+  float: left;
+}
+
+#mapa_tipy .legenda-prirodni-ukazy .right-side {
+  float: right;
+  margin: 5px 0 0 10px;
+}
+
+#mapa_tipy .legenda-prirodni-ukazy p {
+  color: #71a881;
+}
+
+#mapa_tipy .legenda-vlakove-stanice {
+  position: absolute;
+  bottom: 6%;
+}
+
+#mapa_tipy .legenda-vlakove-stanice .left-side {
+  float: left;
+}
+
+#mapa_tipy .legenda-vlakove-stanice .right-side {
+  float: right;
+  margin: 1px 0 0 10px;
+}
+
+#mapa_tipy .legenda-vlakove-stanice p {
+  color: #47aab5;
+}
+
+#mapa_tipy .legenda-technologicke-zajimavosti {
+  position: absolute;
+  bottom: 0;
+}
+
+#mapa_tipy .legenda-technologicke-zajimavosti .left-side {
+  float: left;
+}
+
+#mapa_tipy .legenda-technologicke-zajimavosti .right-side {
+  float: right;
+  margin: 1px 0 0 10px;
+}
+
+#mapa_tipy .legenda-technologicke-zajimavosti p {
+  color: #000;
+}
+
+#mapa_tipy .legenda-pamatky svg,
+#mapa_tipy .legenda-prirodni-ukazy svg,
+#mapa_tipy .legenda-vlakove-stanice svg,
+#mapa_tipy .legenda-technologicke-zajimavosti svg {
+  width: 20px;
+}
+
+#mapa_tipy .poi {
+  cursor: pointer;
+  width: 20px;
+}
+
+#mapa_tipy #point_of_interest_1_btn {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#train_fare_table {
+  margin-top: 2rem;
+}
+
+#train_fare_table h2 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.border-top-none {
+  border-top: none !important;
+}
+
+.border-bottom-none {
+  border-bottom: none !important;
+}
+
+#table_of_train_fare {
+  border-top: none;
+  border-left: 1px solid #005194;
+  border-right: 1px solid #005194;
+  border-bottom: 1px solid #005194;
+  color: #005194;
+}
+
+#table_of_train_fare .table thead th {
+  border-bottom: 1px solid #005194;
+  border-right: 1px solid #005194;
+}
+
+#table_of_train_fare .table thead th:nth-child(1) {
+  border-right: none;
+  text-align: left;
+}
+
+#table_of_train_fare .table thead th:last-child {
+  border-right: none;
+  text-align: left;
+}
+
+#table_of_train_fare .table td,
+#table_of_train_fare .table th {
+  font-size: 0.75rem;
+  border-top: 1px solid #005194;
+  text-align: center;
+}
+
+#table_of_train_fare .table td {
+  border-right: 1px solid #005194;
+}
+
+#table_of_train_fare .table td:last-child {
+  border-right: none;
+}
+
+#table_of_train_fare .table td:nth-child(1) {
+  border-right: none;
+}
+
+#table_of_train_fare .table {
+  margin-bottom: 0;
+}
+
+#table_of_train_fare .table thead {
+  background: #F3F3F3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.video-player {
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+.doprava-usteckeho-kraje .svg {
+  margin-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .woocommerce div.product {
+  margin-bottom: 0;
+  position: relative;
+  min-height: 500px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+  float: left;
+  width: 48%;
+  max-width: 100%;
+}
+
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+  float: right;
+  width: 48%;
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 767px) and (max-width: 768px) {
+
+
+  #pre_header .green-circle {
+    width: 18px;
+    height: 14px;
+  }
+
+  header .logo-text {
+    width: 100%;
+    position: absolute;
+    left: 120px;
+  }
+
+  #navbarCollapse {
+    display: none;
+  }
+
+  #navbarCollapse.collapsing {
+    display: block;
+  }
+
+  #navbarCollapse.show {
+    display: block;
+  }
+
+  #navbarCollapse.collapsing #menu-menu-1,
+  #navbarCollapse.show #menu-menu-1 {
+    display: block;
+    text-align: right;
+    width: 100vw;
+    padding: 0 0 10px 0;
+    margin: 50px 0 0 0;
+  }
+
+  #hamburger {
+    display: block;
+    top: 24px;
+    right: 0;
+  }
+
+  header.fixed.hide #hamburger,
+  header.fixed.show #hamburger {
+    top: 8px;
+  }
+
+  .history-section.left {
+    padding-right: 60%;
+  }
+
+  .history-section.right {
+    padding-left: 60%;
+  }
+
+  .history-section.left .svg {
+    position: absolute;
+    right: 55%;
+  }
+
+  .history-section.right .svg {
+    position: absolute;
+    left: 55%;
+  }
+
+  .history-section:nth-child(4) {
+    margin-top: -240px;
+  }
+
+  footer .ustecky svg {
+    width: 100px;
+    left: -15px;
+    top: -10px;
+  }
+
+  .all-interesting-places .card-footer a[role=button].btn-yellow {
+    padding: 10px;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+
+  body a[role=button].btn-transparent {
+    padding: 5px 1px;
+  }
+
+  .train-special-offer .content {
+    font-size: 0.8rem;
+    position: relative;
+    top: 14px;
+    left: 20px;
+  }
+
+  .train-special-offer button {
+    padding: 4px 40px;
+  }
+
+  .train-special-offer .svg {
+    left: 10px;
+  }
+
+  .search-train .from select, .search-train .to select, .search-train .when select {
+    width: 64%;
+  }
+
+  #pills-tab .nav-item:nth-child(1):after {
+    width: 110px;
+  }
+
+  #pills-tab .nav-item:nth-child(2):after {
+    width: 136px;
+  }
+
+  .gallery-icon.landscape {
+    margin: 5px;
+  }
+
+  body a[role=button].btn-yellow {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+
+  #navbarCollapse {
+    display: none;
+  }
+
+  #navbarCollapse.collapsing {
+    display: block;
+  }
+
+  #navbarCollapse.show {
+    display: block;
+  }
+
+  #hamburger {
+    display: block;
+    top: -65px;
+    right: 0;
+  }
+
+  header.fixed {
+    width: 100vw;
+  }
+
+  header.fixed.hide #hamburger,
+  header.fixed.show #hamburger {
+    top: -50px;
+  }
+
+  #navbarCollapse.collapsing #menu-menu-1,
+  #navbarCollapse.show #menu-menu-1 {
+    display: block;
+    text-align: center;
+    width: 100vw;
+    padding: 0 0 10px 0;
+  }
+
+  .search-train .when {
+    margin-top: 15px;
+  }
+
+  .train-special-offer {
+    margin-left: 0;
+  }
+
+  .tabs-about-train svg {
+    margin-top: 30px;
+  }
+
+  .bordered-right {
+    border: none;
+  }
+
+  .technical-data button {
+    margin-top: 24px;
+  }
+
+  #history .row {
+    background-image: none;
+  }
+
+  .history-section.left {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 1rem;
+  }
+
+  .history-section.right {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .history-section.left .svg,
+  .history-section.right .svg {
+    left: 0;
+  }
+
+  .history-section:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(4) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(5) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(7) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(8) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(10) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(12) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(13) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(15) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(17) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(19) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(21) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(22) {
+    margin-top: 0;
+  }
+
+  .history-section:nth-child(23) {
+    margin-top: 0;
+  }
+
+  .jumbotron h1 {
+    font-size: 45px;
+  }
+
+  .jumbotron h2 {
+    font-size: 25px;
+  }
+
+  .train-special-offer {
+    margin-top: 20px;
+  }
+
+  #pills-tab .nav-item:nth-child(1):after {
+    width: 137px;
+  }
+
+  #pills-tab .nav-item:nth-child(2):after {
+    width: 168px;
+  }
+
+  footer .ustecky .svg {
+    margin-top: 30px;
+  }
+
+  footer svg {
+    width: 150px;
+    height: 100px;
+  }
+
+  footer .ustecky svg {
+    width: 150px;
+    height: 100px;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .page-template-template-train-schedule .siteorigin-widget-tinymce svg {
+    width: 150px;
+    height: 100px;
+  }
+
+  .page-template-template-contact .siteorigin-widget-tinymce .svg {
+    width: 150px;
+    height: 100px;
+    margin-top: -30px;
+    margin-bottom: 50px;
+  }
+
+  .page-template-template-contact .siteorigin-widget-tinymce .ustecky-kraj .svg {
+    margin: -80px 0 90px 0;
+  }
+
+  .modal-dialog .counts [class*='col-'] {
+    margin-top: 2rem;
+  }
+
+  .modal-dialog .poznamka {
+    margin-top: 3rem;
+  }
+
+  .modal-dialog .upozorneni input[type="submit"] {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 376px) {
+
+  #pills-tab .nav-item:nth-child(2):after {
+    width: 114px;
+  }
+}
+
+@media (max-width: 321px) {
+
+  #pills-tab .nav-item:nth-child(1):after {
+    width: 72px;
+  }
+
+  #pills-tab .nav-item:nth-child(2):after {
+    width: 94px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* if its IE */
+
+.isIE header .logo-text {
+  margin-left: -100px;
+  width: 160px;
+  position: absolute;
+}
+
+.isIE .train-special-offer {
+  position: relative;
+}
+
+.isIE .train-special-offer .svg {
+  position: absolute;
+  top: -25px;
+}
+
+.isIE .train-special-offer .content {
+  top: 15px;
+  left: 100px;
+}
+
+.isIE .train-special-offer button {
+  right: 15px;
+}
+
+.isIE #trasa_drahy {
+  width: 100%;
+  height: 350px;
+}
+
+.isIE .doprava-usteckeho-kraje .svg {
+  margin-top: -1.5rem;
+}
+
+.isIE #mapa_o_zeleznici,
+.isIE #vlak_schema_komplet {
+  width: 100%;
+  height: 450px;
+}
