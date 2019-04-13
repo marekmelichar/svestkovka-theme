@@ -1,246 +1,101 @@
 <?php
-/**
- * robogon functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package robogon
- */
 
-if ( ! function_exists( 'robogon_setup' ) ) :
+define( 'THEME_DIRECTORY', get_template_directory() );
+
+/**
+ * Theme Support and Site Settings
+ */
+require_once THEME_DIRECTORY . '/inc/site-settings.php';
+
+/**
+ * Scripts and Styles
+ */
+require_once THEME_DIRECTORY . '/inc/enqueue-scripts.php';
+
+/**
+ * Cleanup WordPress and Reorder menus
+ */
+require_once THEME_DIRECTORY . '/inc/cleanup-reorder.php';
+
+/**
+ * Hide the main content editor if not necessary
+ */
+require_once THEME_DIRECTORY . '/inc/hide-the-editor.php';
+
+/**
+ * Register Sidebars
+ */
+// require_once THEME_DIRECTORY . '/inc/sidebars-widgets.php';
+
+/**
+ * Shortcodes
+ */
+// require_once THEME_DIRECTORY . '/inc/shortcode_get_post.php';
+require_once THEME_DIRECTORY . '/inc/shortcode_contact_button.php';
+
+/**
+ * Customizer
+ */
+require_once THEME_DIRECTORY . '/inc/customizer.php';
+
+/**
+ * Theme Options Page
+ */
+// require_once THEME_DIRECTORY . '/inc/theme-options-page.php';
+
+
+// require_once THEME_DIRECTORY . '/inc/template-functions.php';
+// require_once THEME_DIRECTORY . '/inc/template-tags.php';
+
+
+
+
+if ( ! function_exists( 'log_me' ) ) :
 	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
+	 * Simple error logging
 	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
+	 * @param $message
+	 * @return bool
 	 */
-	function robogon_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on robogon, use a find and replace
-		 * to change 'robogon' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'robogon', get_template_directory() . '/languages' );
+	function log_me( $message )
+	{
+		if ( true !== WP_DEBUG ) return false;
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		if ( is_array($message) || is_object($message) ) {
+			return error_log( json_encode($message) );
+		}
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
-
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'robogon_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
-
-		register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'robogon' ),
-		) );
-
-		// support the WooCommerce
-		add_theme_support( 'woocommerce', array(
-			// 'thumbnail_image_width' => 150,
-			// 'single_image_width'    => 300,
-			//
-	    //     'product_grid'          => array(
-	    //         'default_rows'    => 3,
-	    //         'min_rows'        => 2,
-	    //         'max_rows'        => 8,
-	    //         'default_columns' => 4,
-	    //         'min_columns'     => 2,
-	    //         'max_columns'     => 5,
-	    //     ),
-		) );
+		return error_log( $message );
 	}
+
 endif;
-add_action( 'after_setup_theme', 'robogon_setup' );
 
 
+if ( ! function_exists( 'extend_array' ) ) :
 
+	/**
+	 * jQuery style array extend
+	 *
+	 * @return array
+	 */
+	function extend_array()
+	{
+		$args     = func_get_args();
+		$extended = array();
 
+		if ( is_array( $args ) && count( $args ) )
+		{
+			foreach ( $args as $array )
+			{
+				if ( ! is_array( $array ) )	continue;
+				$extended = array_merge( $extended, $array );
+			}
+		}
 
-
-
-
-
-
-
-
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function robogon_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'robogon_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'robogon_content_width', 0 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function robogon_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'robogon' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'robogon' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'robogon_widgets_init' );
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Enqueue scripts and styles.
- */
-function robogon_scripts() {
-	// wp_enqueue_script( 'jquery3.2.1', 'https://code.jquery.com/jquery-3.2.1.slim.min.js', false, null);
-	// wp_enqueue_script( 'robogon-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', array(), null, true );
-	// wp_enqueue_script( 'robogon-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', array(), null, true );
-
-	wp_enqueue_script( 'robogon-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'weather-js', get_template_directory_uri() . '/assets/js/weather.js', array(), '', true );
-	wp_enqueue_script( 'fare-js', get_template_directory_uri() . '/assets/js/fare.js', array(), '', true );
-	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), '', true );
-
-
-
-	wp_enqueue_style( 'robogon-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
-	// wp_enqueue_style( 'robogon-fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,800&amp;subset=latin-ext');
-	wp_enqueue_style( 'robogon-assets-style', get_template_directory_uri() . '/assets/css/style.css' );
-	wp_enqueue_style( 'robogon-weather-style', get_template_directory_uri() . '/assets/css/weather.css' );
-	wp_enqueue_style( 'robogon-style', get_stylesheet_uri() );
-
-//	wp_enqueue_script( 'robogon-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20151215', true );
-//	wp_enqueue_script( 'robogon-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
-//	wp_enqueue_script( 'robogon-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		return $extended;
 	}
-}
-add_action( 'wp_enqueue_scripts', 'robogon_scripts' );
 
-
-
-
-
-
-
-
-
-
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce Plugin
- */
-// require get_template_directory() . '/inc/woocommerce-custom-product-mini-plugin.php';
-
-
-
-
-
+endif;
 
 
 
@@ -274,15 +129,15 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'theme-general-settings',
 	));
 
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Train Search Settings',
-		'menu_title'	=> 'Train Search',
-		'parent_slug'	=> 'theme-general-settings',
-	));
-
 	// acf_add_options_sub_page(array(
 	// 	'page_title' 	=> 'Help Widget Settings',
 	// 	'menu_title'	=> 'Help Widget',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
+
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'Global Strings',
+	// 	'menu_title'	=> 'Global Strings',
 	// 	'parent_slug'	=> 'theme-general-settings',
 	// ));
 
@@ -306,160 +161,265 @@ if( function_exists('acf_add_options_page') ) {
 
 
 
-// icons as a shortcodes:
 
-function azd_logo_modre() {
-  ob_start();
-  get_template_part('assets/img/svg/azd_logo_modre.svg');
-  return ob_get_clean();
+
+// OPTIONALLY CAN USE ICONS IN SHORTCODE :
+
+// function ikona_facebook() {
+//   ob_start();
+//   get_template_part('svg/ikona_facebook.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('ikona_facebook', 'ikona_facebook');
+//
+//
+//
+// function ikona_linkedin() {
+//   ob_start();
+//   get_template_part('svg/ikona_linkedin.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('ikona_linkedin', 'ikona_linkedin');
+//
+//
+//
+// function ikona_youtube() {
+//   ob_start();
+//   get_template_part('svg/ikona_youtube.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('ikona_youtube', 'ikona_youtube');
+//
+//
+//
+// function homepage_industrial_vision_logo() {
+//   ob_start();
+//   get_template_part('svg/homepage_industrial_vision_logo.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('homepage_industrial_vision_logo', 'homepage_industrial_vision_logo');
+//
+//
+//
+// function homepage_xevoq_logo() {
+//   ob_start();
+//   get_template_part('svg/homepage_xevoq_logo.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('homepage_xevoq_logo', 'homepage_xevoq_logo');
+//
+// function logo_ixperta_bile() {
+//   ob_start();
+//   get_template_part('svg/logo_ixperta_bile.svg');
+//   return ob_get_clean();
+// }
+// add_shortcode('logo_ixperta_bile', 'logo_ixperta_bile');
+
+
+
+
+
+
+
+// no auto paragraphs
+// remove_filter( 'the_content', 'wpautop' );
+
+
+
+
+
+
+// extend the theme with career - theme-01
+// require('theme-01/functions.php');
+
+
+
+
+
+
+
+
+// function language_selector_flags(){
+//     $languages = icl_get_languages('skip_missing=0&orderby=code');
+//     if(!empty($languages)){
+//         foreach($languages as $l){
+//             if(!$l['active']) echo '<a href="'.$l['url'].'">';
+//             echo '<img src="'.$l['country_flag_url'].'" height="15" alt="'.$l['language_code'].'" width="23" />';
+//             if(!$l['active']) echo '</a>';
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ACF PRO BLOCKS for Gutenberg : !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! THIS IS POSSIBLE ONLY WITH V. 5.8 BETA !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/**
+ * Gutenberg blocks
+ */
+require_once THEME_DIRECTORY . '/template-blocks/register-block/main-banner.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/info-stripe.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/event-advertisement-stripe.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/teaser-box.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/get-mobile-app.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/query-posts.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/custom-heading.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/train-to-rent.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/train-to-rent-contact-form.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/trips.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/contact-tiles.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/our-trains.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/search-train.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/search-train-results.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/svg-mapa-technologie.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/smart-rail.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/robotrain.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/modern_local_rail_features.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/parking_map.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/parni_vlak_papousek.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/technologie-newsletter.php';
+require_once THEME_DIRECTORY . '/template-blocks/register-block/newsletter-inline-form.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Update CSS within in Admin
+function admin_style() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
 }
-add_shortcode('azd_logo_modre', 'azd_logo_modre');
+add_action('admin_enqueue_scripts', 'admin_style');
 
-function ustecky_kraj() {
-  ob_start();
-  get_template_part('assets/img/svg/ustecky_kraj.svg');
-  return ob_get_clean();
-}
-add_shortcode('ustecky_kraj', 'ustecky_kraj');
 
-function doprava_uk_logo() {
-  ob_start();
-  get_template_part('assets/img/svg/doprava_uk_logo.svg');
-  return ob_get_clean();
-}
-add_shortcode('doprava_uk_logo', 'doprava_uk_logo');
 
-function mapa_historie() {
-  ob_start();
-  get_template_part('assets/img/svg/mapa_historie.svg');
-  return ob_get_clean();
-}
-add_shortcode('mapa_historie', 'mapa_historie');
 
-// weather
-add_shortcode( 'weather', 'weather_shortcode' );
-function weather_shortcode( $atts ) {
 
-  $atts = shortcode_atts( array(
-    // 'parent_class' => 'weather-forecast',
-    // 'children_class' => 'some-children-class'
-  ), $atts );
 
-  // create the html
-  $html .= '<div id="root_weather_forecast"></div>';
 
-  return $html;
+
+
+
+
+
+
+
+
+
+
+
+
+add_action('wp_head', 'myplugin_ajaxurl');
+
+function myplugin_ajaxurl() {
+
+   echo '<script type="text/javascript">
+           window.ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
 }
 
-function trasa_drahy() {
-  ob_start();
-  get_template_part('assets/img/svg/trasa_drahy.svg');
-  return ob_get_clean();
-}
-add_shortcode('trasa_drahy', 'trasa_drahy');
-
-function vlak_schema() {
-  ob_start();
-  get_template_part('assets/img/svg/vlak_schema.svg');
-  return ob_get_clean();
-}
-add_shortcode('vlak_schema', 'vlak_schema');
-
-function vlak_planek_komplet() {
-  ob_start();
-  get_template_part('assets/img/svg/vlak_planek_komplet.svg');
-  return ob_get_clean();
-}
-add_shortcode('vlak_planek_komplet', 'vlak_planek_komplet');
-
-function mapa_o_zeleznici() {
-  ob_start();
-  get_template_part('assets/img/svg/mapa_o_zeleznici.svg');
-  return ob_get_clean();
-}
-add_shortcode('mapa_o_zeleznici', 'mapa_o_zeleznici');
 
 
 
+add_action( 'wp_ajax_nopriv_load_more_posts', 'load_more_posts' );
+add_action( 'wp_ajax_load_more_posts', 'load_more_posts' );
+function load_more_posts() {
 
+  $id = $_POST['id'];
+  $return = array();
+  $return['id'] = $id;
 
-
-
-
-
-
-
-
-// define('WC_MAX_LINKED_VARIATIONS', 250);
-
-
-
-
-
-
-
-
-
-
-// add_action( 'wp_ajax_update_seat', 'update_seat' );
-add_action( 'wp_ajax_update_seat', 'update_seat' );
-add_action( 'wp_ajax_nopriv_update_seat', 'update_seat' );
-
-function update_seat() {
-	// global $wpdb; // this is how you get access to the database
+	// global $wpdb;
+  // $queryPosts = "SELECT * FROM wp_posts
+  //                WHERE post_type = 'post'
+  //                ORDER BY post_modified DESC;";
+  // $result_stanice = $wpdb->get_results($queryPosts);
 	//
-	// $whatever = intval( $_POST['whatever'] );
+	// $response = array();
 	//
-	// $whatever += 10;
-	//
-  // echo $whatever;
+	// foreach ($result_stanice as $item) {
+  //   $response[] = array(
+  //     'id' => $item->id,
+  //     'nazevStanice' => $item->nazevStanice
+  //   );
+  // }
 
-	global $wpdb;
+	$response = "";
 
-	// $seat = intval( $_POST['seat'] );
-	$post = $_POST;
+	$args = array(
+      'posts_per_page' => 100,
+      'offset' => 7,
+			'post_status' => 'publish'
+  );
+  $posts_row_2 = new WP_Query( $args ); // The Query ?>
 
-	$seat = $post['seat'];
-	$from = $post['train_from'];
-	$to = $post['train_to'];
+  <?php if( $posts_row_2->have_posts() ) { ?>
 
-	// var_dump($seat, $from, $to);
-	// $query_1 = "UPDATE `sedadla` SET $seat = '1' WHERE Z = 'Lovosice' AND Kam = 'Sulejovice'";
-	// $query_2 = "SELECT * FROM `sedadla` WHERE Z = 'Lovosice' AND Kam = 'Sulejovice'";
-	// $query_ajax = "UPDATE `sedadla` SET $seat = '1' WHERE Z = $from AND Kam = $to";
+		<?php //$index = 1; ?>
 
-	// $result = $wpdb->update($query_ajax);
-	// $result = $wpdb->query($wpdb->prepare("UPDATE `sedadla` SET $seat = '1' WHERE Z = 'Lovosice' AND Kam = 'Sulejovice'"));
-	// var_dump($result);
-	// $result_2 = $wpdb->get_results($query_2);
-	// $result = $wpdb->query($wpdb->prepare("UPDATE `sedadla` SET %s = '1' WHERE Z = %s AND Kam = %s", $seat, $from, $to));
+		<?php $response .= '<div class="container">' ?>
+			<?php $response .= '<div class="row trips-after-load-more">' ?>
 
-	$result = $wpdb->update('sedadla', array($seat=>'1'), array('Z'=>$from, 'Kam'=>$to));
-	// var_dump($result);
-	// echo $query_1;
-	// echo $query_2;
-	echo $result;
-	// echo $result_2;
-	// echo $query_1;
+				<?php while ( $posts_row_2->have_posts() ) : $posts_row_2->the_post(); // The Loop ?>
 
+						<?php $excerpt_custom_image = get_field('excerpt_custom_image', get_the_id()); ?>
 
-
+						<?php $response .= '<div class="col-md-3 trip load-more">' ?>
+						<?php $response .= '<h3 class="heading">' . get_the_title() . '</h3>' ?>
+	          <?php //$response .= '<img src="'.$excerpt_custom_image['url'].'" alt="'.$excerpt_custom_image['alt'].'" />' ?>
+	          <?php $response .= '<a href="' . get_permalink($post->ID) . '"><div class="trip-bg" style="background-image: url(' . get_the_post_thumbnail_url($post->ID) . ');"></div></a>' ?>
+	          <?php $response .= '<a class="btn btn-warning" href="' . get_permalink() . '">' ?>
+	          <?php $response .= get_field('trips_button_text', 'option') ?>
+	          <?php $response .= '</a>' ?>
+	          <?php $response .= '</div>' ?>
 
 
 
-	// echo 'YES';
+					<?php //$index++; ?>
+				<?php endwhile; ?>
 
-	// foreach ($result as $instance) {
-	// 	echo "<div> Z: " . $instance->Z . "</div>";
-	// 	echo "<div> Kam: " . $instance->Kam . "</div>";
-	//
-	// 	for ($i = 1; $i <= 55; $i++) {
-	// 		$index = 's' . $i;
-	// 		echo "<a id=$index class='seat'><span>" . $instance->$index . "</span></a>";
-	// 	}
-	// }
+			<?php $response .= '</div>' ?>
+		<?php $response .= '</div>' ?>
 
+  <?php } ?>
+
+	<?php
+	echo json_encode($response);
 	wp_die(); // this is required to terminate immediately and return a proper response
+
 }
 
 
@@ -469,26 +429,57 @@ function update_seat() {
 
 
 
-add_action( 'wp_ajax_get_seats_data', 'get_seats_data' );
-add_action( 'wp_ajax_nopriv_get_seats_data', 'get_seats_data' );
 
-function get_seats_data() {
-	global $wpdb;
 
-	$post = $_POST;
 
-	$seat = $post['seat'];
-	$from = $post['train_from'];
-	$to = $post['train_to'];
 
-	$query = "SELECT * FROM `sedadla` WHERE Z = $from AND Kam = $to";
-	$result = $wpdb->get_results($query);
 
-	foreach ($result as $instance) {
-		echo $instance;
-	}
 
-	// echo $result;
 
-	wp_die();
-}
+
+
+
+// include('phpqrcode/qrlib.php');
+//
+// // outputs image directly into browser, as PNG stream
+// // QRcode::png('start:20;stop:70;exp:06.01.2020;cp:2;tp:4;overeni:asdsa848484ad9as4das894d;');
+//
+// // this will save it to the root directory:
+// QRcode::png('start:20;stop:70;exp:06.01.2020;cp:2;tp:4;overeni:asdsa848484ad9as4das894d;', 'jizdenka_asdsa848484ad9as4das894d.png', 'L', 4, 2);
+
+
+
+
+
+
+
+
+
+
+
+// function getUserIP()
+// {
+//     $client  = @$_SERVER['HTTP_CLIENT_IP'];
+//     $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+//     $remote  = $_SERVER['REMOTE_ADDR'];
+//
+//     if(filter_var($client, FILTER_VALIDATE_IP))
+//     {
+//         $ip = $client;
+//     }
+//     elseif(filter_var($forward, FILTER_VALIDATE_IP))
+//     {
+//         $ip = $forward;
+//     }
+//     else
+//     {
+//         $ip = $remote;
+//     }
+//
+//     return $ip;
+// }
+//
+//
+// $user_ip = getUserIP();
+//
+// echo $user_ip; // Output IP address [Ex: 177.87.193.134]

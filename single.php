@@ -1,54 +1,21 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package robogon
- */
+<?php get_header() ?>
 
-get_header();
-?>
+<?php if ( have_posts() ) : ?>
+<div class="post-list container __single-post-page">
+	<?php while ( have_posts() ) : the_post() ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<div class="main-image-banner" style="background-image: url(<?php echo get_the_post_thumbnail_url($post->ID); ?>); min-height: 350px; background-size: cover; background-position: 0 50%; background-repeat: no-repeat;">
+			<?php //the_post_thumbnail(); ?>
+		</div>
 
-		<?php
-		while ( have_posts() ) :
+		<article class="single-post-page">
 
-			the_post(); ?>
+			<?php the_content(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		</article>
 
-				<?php get_template_part('partials/jumbotron'); ?>
+	<?php endwhile ?>
+</div>
+<?php endif ?>
 
-				<div class="container">
-					<?php the_content() ?>
-				</div>
-
-				<?php the_field('weather_widget_shortcode') ?>
-
-				<?php get_template_part( 'partials/slider'); ?>
-
-				<?php
-
-				//get_template_part( 'template-parts/content', get_post_type() );
-
-				//the_post_navigation();
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				// if ( comments_open() || get_comments_number() ) :
-				// 	comments_template();
-				// endif; ?>
-
-				</article> <?php
-
-				endwhile; // End of the loop.
-				?>
-
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_footer();
+<?php get_footer() ?>

@@ -1,15 +1,3 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package robogon
- */
-
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -17,102 +5,118 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62037281-12"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'UA-62037281-12');
+		gtag('config', 'UA-62037281-12');
 	</script>
 
 	<!-- Global site tag (gtag.js) - AdWords: 795058124 -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-795058124"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'AW-795058124');
+		gtag('config', 'AW-795058124');
 	</script>
 
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.png" sizes="16x16 32x32 64x64" type="image/x-icon" />
 
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<!-- <link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.5.14' type='text/css' media='all' /> -->
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,800&amp;subset=latin-ext' type='text/css' media='all' />
+<!-- Font Awesome Icons -->
+<!-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> -->
 
-	<!-- Font Awesome Icons -->
-	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<?php wp_head(); ?>
 
-	<!-- Slick CSS -->
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<!-- Smartlook -->
+<script type="text/javascript">
+	window.smartlook||(function(d) {
+	var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+	var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+	c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
+	})(document);
+	smartlook('init', 'f73e0476d989ad3c4d3dd3dd601676a8e588d38c');
+</script>
 
-	<!-- Slick JS -->
-	<script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-	<!-- Babel ES6 polyfill -->
-	<script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js"></script>
-
-	<?php wp_head(); ?>
-
-	<!-- Smartlook -->
-	<script type="text/javascript">
-    window.smartlook||(function(d) {
-    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
-    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
-    c.charset='utf-8';c.src='https://rec.smartlook.com/recorder.js';h.appendChild(c);
-    })(document);
-    smartlook('init', 'f73e0476d989ad3c4d3dd3dd601676a8e588d38c');
-	</script>
 </head>
+
+
 
 <body <?php body_class(); ?>>
 
-<div class="blue-bg">
-	<div id="pre_header" class="container">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 left-side">
-					<?php the_field('left_side_text', 'option'); ?>
-				</div>
-				<div class="col-md-6 right-side text-right">
-					<?php the_field('right_side_text', 'option'); ?>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<?php //get_template_part('partials/help_widget'); ?>
 
-<header class="fixed">
+<?php //get_template_part('partials/top_info_navbar'); ?>
+
+<span id="top"></span>
+
+<header id="header" class="header">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4 logo d-inline-flex">
-				<a class="navbar-brand" href="<?php echo get_home_url(); ?>">
-					<?php get_template_part('assets/img/svg/azd_logo_barevne_bez_napisu_praha.svg'); ?>
+		<div class="row align-items-center">
+			<div class="logo-area col-md-3">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<div class="logo">
+						<div class="svg">
+							<?php get_template_part('svg/logo_azd.svg'); ?>
+						</div>
+					</div>
+					<div class="sublogo">
+						<?php echo the_field('logo_text', 'options') ?>
+					</div>
 				</a>
-				<div class="logo-text">
-					<?php the_field('logo_text_1', 'option'); ?><br/>
-					<?php the_field('logo_text_2', 'option'); ?>
-				</div>
 			</div>
-			<div class="col-md-8">
-				<button id="hamburger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon">
-						<i class="fas fa-bars"></i>
-					</span>
-				</button>
-				<div id="navbarCollapse" class="float-right">
-					<?php if ( has_nav_menu( 'primary' ) ) : ?>
-							<?php
-								wp_nav_menu( array(
-									'theme_location' => 'primary',
-									'menu_class'     => 'primary nav',
-								 ) );
-							?>
-					<?php endif; ?>
+
+			<div class="desktop-header col-md-9">
+				<?php
+					wp_nav_menu( array( 'menu' => 'Primary Menu' ) );
+				?>
+				<!-- <div class="ikona-ucet">
+					<a href="/my-account"><?php get_template_part('svg/ikona_ucet.svg'); ?></a>
+				</div> -->
+				<div class="ikona-mail">
+					<a href="#" data-toggle="modal" data-target="#modalFeedback"><?php get_template_part('svg/ikona_mail.svg'); ?></a>
 				</div>
+				<!-- <div class="ikona-kosik">
+					<a href="/my-account"><?php get_template_part('svg/ikona_kosik.svg'); ?></a>
+				</div> -->
+
+				<!-- <div class="mobile-search">
+					<div class="search-icon">
+						<i class="fas fa-search"></i>
+					</div>
+					<?php get_search_form(); ?>
+				</div> -->
+			</div>
+
+
+		</div>
+			<div class="mobile-header col">
+			<?php
+				wp_nav_menu( array( 'menu' => 'Mobile Menu 1' ) );
+			?>
+			<div class="mobile-menu-trigger"><?php get_template_part('svg/hamburger.svg'); ?></div>
+
+			<div class="slide-mobile-nav">
+				<div class="logo-mobile-white">
+					<div class="svg">
+						<?php get_template_part('svg/logo_azd_bile.svg'); ?>
+					</div>
+				</div>
+				<div class="sublogo">
+					<?php echo the_field('logo_text', 'options') ?>
+				</div>
+				<div class="logo-mobile-white-underline"></div>
+				<?php
+					wp_nav_menu( array( 'menu' => 'Mobile Menu 2' ) );
+				?>
+				<div class="mobile-menu-close"><?php get_template_part('svg/ikona_krizek_bily.svg'); ?></div>
 			</div>
 		</div>
 	</div>
 </header>
-<main role="main">
+<a href="#top" id="back_to_top" title="Back to top"><span><?php get_template_part('svg/ikona_sipka_nahoru.svg'); ?></span></a>
