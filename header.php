@@ -81,6 +81,11 @@
 				<div class="ikona-mail">
 					<a href="#" data-toggle="modal" data-target="#modalFeedback"><?php get_template_part('svg/ikona_mail.svg'); ?></a>
 				</div>
+				<div class="ikona-search search-icon">	
+					<a href="#" onclick="return false;"><?php get_template_part('svg/ikona_search.svg'); ?></a>	
+				</div>	
+				<?php get_search_form(); ?>
+
 				<!-- <div class="ikona-kosik">
 					<a href="/my-account"><?php get_template_part('svg/ikona_kosik.svg'); ?></a>
 				</div> -->
@@ -89,16 +94,24 @@
 					<div class="search-icon">
 						<i class="fas fa-search"></i>
 					</div>
-					<?php get_search_form(); ?>
+					<?php //get_search_form(); ?>
 				</div> -->
 			</div>
 
 
 		</div>
-			<div class="mobile-header col">
+		<div class="mobile-header col">
 			<?php
 				wp_nav_menu( array( 'menu' => 'Mobile Menu 1' ) );
 			?>
+
+			<div class="mobile-search">	
+				<div class="ikona-search search-icon">	
+					<a href="#" onclick="return false;"><?php get_template_part('svg/ikona_search.svg'); ?></a>	
+				</div>	
+				<?php get_search_form(); ?>	
+			</div>
+
 			<div class="mobile-menu-trigger"><?php get_template_part('svg/hamburger.svg'); ?></div>
 
 			<div class="slide-mobile-nav">
