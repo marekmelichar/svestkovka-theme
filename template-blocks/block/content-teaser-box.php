@@ -65,9 +65,10 @@ $id = 'teaserbox-' . $block['id'];
 
 <style type="text/css">
 	#<?php echo $id; ?> {
-    -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+    margin: 1rem auto;
+    -webkit-box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.16);
+    box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.16);
 	}
 
 	#<?php echo $id; ?> .white-stripe {

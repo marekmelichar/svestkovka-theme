@@ -117,31 +117,39 @@ $id = 'parnivlakpapousek-' . $block['id'];
         <?php the_field('third_row_content') ?>
       </div>
 
-      <div class="col-md-12 mt-5">
-        <div class="row">
-          <div class="col-md-6">
-            <?php the_field('fourth_row_content_left') ?>
-          </div>
-          <div class="col-md-6">
-            <h5><strong><?php the_field('fourth_row_tickets_heading') ?></strong></h5>
-            <div class="row no-gutters papousek-jizdne">
-              <div class="col-md-2">
-                <?php get_template_part('svg/airplane_ticket.svg') ?>
-              </div>
-              <div class="col-md-2 pipe-after jizdne">
-                <?php the_field('fourth_row_tickets_adults_heading') ?><br/>
-                <strong><?php the_field('fourth_row_tickets_adults_price') ?></strong>
-              </div>
-              <div class="col-md-3">
-                <?php the_field('fourth_row_tickets_kids_heading') ?><br/>
-                <strong><?php the_field('fourth_row_tickets_kids_price') ?></strong>
-              </div>
-              <div class="col-md-5">
-                <?php the_field('fourth_row_tickets_sidenote') ?>
+      <div class="col-md-12 __mt-5">
+        <?php if(get_field('fourth_row_content_left') && get_field('fourth_row_tickets_heading')) : ?>
+          <div class="row">
+            <div class="col-md-6">
+              <?php the_field('fourth_row_content_left') ?>
+            </div>
+            <div class="col-md-6">
+              <h5><strong><?php the_field('fourth_row_tickets_heading') ?></strong></h5>
+              <div class="row no-gutters papousek-jizdne">
+                <div class="col-md-2">
+                  <?php get_template_part('svg/airplane_ticket.svg') ?>
+                </div>
+                <div class="col-md-2 pipe-after jizdne">
+                  <?php the_field('fourth_row_tickets_adults_heading') ?><br/>
+                  <strong><?php the_field('fourth_row_tickets_adults_price') ?></strong>
+                </div>
+                <div class="col-md-3">
+                  <?php the_field('fourth_row_tickets_kids_heading') ?><br/>
+                  <strong><?php the_field('fourth_row_tickets_kids_price') ?></strong>
+                </div>
+                <div class="col-md-5">
+                  <?php the_field('fourth_row_tickets_sidenote') ?>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php else : ?>
+          <div class="row">
+            <div class="col">
+              <?php the_field('fourth_row_content_left') ?>
+            </div>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
 
