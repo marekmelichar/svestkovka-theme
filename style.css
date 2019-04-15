@@ -503,7 +503,7 @@ body.single-career {
 }
 
 .standard-content-white-bg-wrapper {
-  margin: 0;
+  margin: 0 auto;
   padding: 1rem 3rem 0 3rem;
 
   background-color: #fff;
@@ -718,8 +718,8 @@ a.yellow-text {
   display: none;
   justify-content: space-between;
   position: absolute;
-  top: 31px;
-  right: 0;
+  top: 66px;
+  right: 15px;
   background: #fff;
   z-index: 102;
   padding: 15px 30px;
@@ -735,6 +735,11 @@ a.yellow-text {
   display: flex;
 }
 
+.header.show .search-form.open,
+.header.hide .search-form.open {
+  top: 55px;
+}
+
 .search-form [type=search] {
   outline-offset: 0;
   -webkit-appearance: none;
@@ -744,6 +749,14 @@ a.yellow-text {
   padding: 5px 10px;
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
+}
+
+.search-page-title {
+  margin: 3rem 0;
+}
+
+.search-post-title {
+  margin: 0;
 }
 
 .search-form label {
@@ -814,7 +827,10 @@ a.yellow-text {
 }
 
 .mobile-search {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 80px;
 }
 
 
@@ -978,7 +994,7 @@ header.header.hide {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 0 60px 0 0;
+  padding: 0 120px 0 0;
   list-style-type: none;
   margin: 0;
 }
@@ -1096,8 +1112,15 @@ header.header.hide {
 .ikona-mail {
   position: absolute;
   top: 10px;
-  /* right: 100px; */
+  right: 4.375rem;
+}
+
+.ikona-search {
+  position: absolute;
+  top: 14px;
   right: 1rem;
+  width: 30px;
+  height: 27px;
 }
 
 .ikona-kosik {
@@ -1426,7 +1449,7 @@ header.header.hide {
 .call-to-action {
   position: absolute;
   background: #fff;
-  width: 500px;
+  width: 350px;
   right: 2rem;
   bottom: 2rem;
   padding: 0.5rem 4rem 0.5rem 0;
