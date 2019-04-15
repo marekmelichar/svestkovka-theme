@@ -318,10 +318,6 @@
 
 @media (max-width: 767px) {
 
-  .mobile-search .search-form {
-    
-  }
-
   /* #back_to_top {
     bottom: 1rem;
     z-index: 1000;
@@ -336,6 +332,7 @@
     right: 2rem;
 
     left: 2rem;
+    bottom: 15px;
 
   }
 

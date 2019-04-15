@@ -735,9 +735,9 @@ a.yellow-text {
   display: flex;
 }
 
-.header.show .search-form.open,
-.header.hide .search-form.open {
-  top: 55px;
+.header.show .search-form.open,	
+.header.hide .search-form.open {	
+  top: 55px;	
 }
 
 .search-form [type=search] {
@@ -751,12 +751,12 @@ a.yellow-text {
   border-top-left-radius: 3px;
 }
 
-.search-page-title {
-  margin: 3rem 0;
-}
+.search-page-title {	
+  margin: 3rem 0;	
+}	
 
-.search-post-title {
-  margin: 0;
+ .search-post-title {	
+  margin: 0;	
 }
 
 .search-form label {
@@ -828,8 +828,8 @@ a.yellow-text {
 
 .mobile-search {
   display: block;
-  position: absolute;
-  top: 5px;
+  position: absolute;	
+  top: 5px;	
   right: 80px;
 }
 
@@ -1115,12 +1115,12 @@ header.header.hide {
   right: 4.375rem;
 }
 
-.ikona-search {
-  position: absolute;
-  top: 14px;
+.ikona-search {	
+  position: absolute;	
+  top: 14px;	
   right: 1rem;
-  width: 30px;
-  height: 27px;
+  width: 30px;	
+  height: 27px;	
 }
 
 .ikona-kosik {
@@ -1449,7 +1449,7 @@ header.header.hide {
 .call-to-action {
   position: absolute;
   background: #fff;
-  width: 350px;
+  width: 500px;
   right: 2rem;
   bottom: 2rem;
   padding: 0.5rem 4rem 0.5rem 0;
