@@ -75,7 +75,9 @@ $id = 'customheading-' . $block['id'];
 
 
   @media (max-width: 767px) {
-
+    #<?php echo $id; ?> {
+      padding: 4rem 2rem 2rem 2rem;
+    }
   }
 
 </style>
